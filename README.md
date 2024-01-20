@@ -1,6 +1,8 @@
 ## AWS Cognito Integration
 
-This branch extends the [official Next.js dashboard app](https://nextjs.org/learn/dashboard-app) by using AWS Cognito as authenticator.
+This branch extends the [Next.js dashboard app](https://nextjs.org/learn/dashboard-app) by using AWS Cognito as authenticator.
+
+A demo of the dashboard app and Cognito integration can be found [here](https://nextjs-dashboard-two-mocha-74.vercel.app/)
 
 ## Create Cognito User Pool
 
@@ -23,7 +25,7 @@ If using v5 beta, some errors will be thrown and the integration with Cognito wi
 
 ### LoginForm
 
-`LoginForm` has been changed. The form now simply checks session. If session exists, show Log Out Button. Otherwise show Log In Button. Log In mechanism is handled by Cognito now. We no longer have to check email/password and get user from database, as in the [official Next.js dashboard app](https://nextjs.org/learn/dashboard-app).
+`LoginForm` has been changed. The form now simply checks session. If session exists, show Log Out Button. Otherwise show Log In Button. Log In mechanism is handled by Cognito now. We no longer have to check email/password and get user from database, as in the [Next.js dashboard app](https://nextjs.org/learn/dashboard-app).
 
 Sign Out is still handled by `next-auth`.
 
@@ -77,4 +79,20 @@ export default async function Template({ children }: { children: React.ReactNode
 ```
 
 If session doesn't exist, redirect use back to login. Meaning user cannot see dashboard pages.
+
+![image](https://github.com/konami99/nextjs-dashboard/assets/166879/7c56d619-1af3-44a3-bad5-60f94fecda98)
+
+![image](https://github.com/konami99/nextjs-dashboard/assets/166879/bde06a6c-8ec3-4228-a073-2ceca8286226)
+
+![image](https://github.com/konami99/nextjs-dashboard/assets/166879/6d2ab2cb-9a27-41aa-97fb-15148952405e)
+
+![image](https://github.com/konami99/nextjs-dashboard/assets/166879/e5229d77-078e-4b41-93df-4cd551942d4e)
+
+![image](https://github.com/konami99/nextjs-dashboard/assets/166879/2f8642ff-4b39-4da6-b13a-4e22060852d5)
+
+![image](https://github.com/konami99/nextjs-dashboard/assets/166879/244a4d82-3fee-416b-949c-8af9b77937c5)
+
+
+
+
 
