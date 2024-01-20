@@ -33,7 +33,7 @@ Sign Out is still handled by `next-auth`.
 
 ### Route Protection
 
-In [official Next.js dashboard app](https://nextjs.org/learn/dashboard-app), route protection is handled by `authorized` callback in `auth.config.ts`:
+In [Next.js dashboard app](https://nextjs.org/learn/dashboard-app), route protection is handled by `authorized` callback in `auth.config.ts`:
 
 User can only see the contents in `/dashboard` when logged in.
 
@@ -65,7 +65,7 @@ However when I downgraded `next-auth` from v5 beta to v4, I couldn't find the [e
 /dashboard
 ![image](https://github.com/konami99/nextjs-dashboard/assets/166879/a14051f3-6eaf-400a-8e58-8c627a3e88da)
 
-All dashboard pages (customer, invoice, overview) will be rendered inside this template. And the template checks session:
+All dashboard pages (customer, invoice, overview) will be rendered inside this Template (which will be rendered inside the Layout). The template checks session:
 
 ```
 export default async function Template({ children }: { children: React.ReactNode }) {
