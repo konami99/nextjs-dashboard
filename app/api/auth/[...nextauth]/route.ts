@@ -4,9 +4,9 @@ import CognitoProvider from "next-auth/providers/cognito"
 export const authOptions = {
     providers: [
         CognitoProvider({
-            clientId: '3tlf8529arluoht7v5cquou8i9',
-            clientSecret: '184sicauoglqskj96amola9l49ggetnoj2sd8qbipbth31k3rprp',
-            issuer: 'https://cognito-idp.us-west-2.amazonaws.com/us-west-2_Ag7vIqPLy',
+            clientId: process.env.COGNITO_CLIENT_ID as string,
+            clientSecret: process.env.COGNITO_CLIENT_SECRET as string,
+            issuer: process.env.COGNITO_ISSUER as string,
         }),
     ],
 }
