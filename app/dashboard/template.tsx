@@ -1,10 +1,8 @@
-'use client'
-
-import { useSession } from "next-auth/react";
 import { redirect } from 'next/navigation';
+import { getServerSession } from "next-auth"
 
-export default function Template({ children }: { children: React.ReactNode }) {
-    const { data: session } = useSession();
+export default async function Template({ children }: { children: React.ReactNode }) {
+    const session = await getServerSession()
     if (!session || !session.user) {
         redirect('/login');
     }
