@@ -23,6 +23,34 @@ package.json
 
 If using v5 beta, some errors will be thrown and the integration with Cognito will fail.
 
+### Auth handler
+
+Create a `route.ts` in `app/api/auth/[...nextauth]/`
+```
+import NextAuth from "next-auth"
+import CognitoProvider from "next-auth/providers/cognito"
+
+const authOptions = {
+    providers: [
+        CognitoProvider({
+            clientId: process.env.COGNITO_CLIENT_ID as string,
+            clientSecret: process.env.COGNITO_CLIENT_SECRET as string,
+            issuer: process.env.COGNITO_ISSUER as string,
+        }),
+    ],
+}
+
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };
+```
+
+You can find `COGNITO_CLIENT_ID` and `COGNITO_CLIENT_SECRET` in AWS Cognito console.
+
+`COGNITO_ISSUER` is in the format of `https://cognito-idp.{region}.amazonaws.com/{PoolId}`. `PoolId` can be found in AWS Cognito console.
+
+Make sure you don't export `authOptions` and `handler`, otherwise `npm run build` will throw error.
+
 ### LoginForm
 
 `LoginForm` has been changed. The form now simply checks session. If session exists, show Log Out Button. Otherwise show Log In Button. Log In mechanism is handled by Cognito now. We no longer have to check email/password and get user from database, as in the [Next.js dashboard app](https://nextjs.org/learn/dashboard-app).
